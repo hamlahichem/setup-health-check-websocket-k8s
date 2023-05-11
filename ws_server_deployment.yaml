@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: ws-server
-    image: registry.digitalocean.com/emplorium/ws_server_healthcheck:latest
+    image: ws_server:latest
     imagePullPolicy: Always
     ports:
     - containerPort: 8080
@@ -16,5 +16,5 @@ spec:
       initialDelaySeconds: 20
       periodSeconds: 10
   imagePullSecrets:
-  - name: emplorium-container-reg  
+  - name: <contaire-regitry-secret-name>
 
