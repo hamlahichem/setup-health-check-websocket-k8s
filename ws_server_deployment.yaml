@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ws-server
+spec:
+  containers:
+  - name: ws-server
+    image: registry.digitalocean.com/emplorium/ws_server_healthcheck:latest
+    imagePullPolicy: Always
+    ports:
+    - containerPort: 8080
+    livenessProbe:
+      httpGet:
+        path: /health
+        port: 8080
+      initialDelaySeconds: 20
+      periodSeconds: 10
+  imagePullSecrets:
+  - name: emplorium-container-reg  
+
